@@ -1,0 +1,166 @@
+@import "libs/reset.scss";
+
+// Setup variable
+
+$HW-nav: 50px;
+$Width-fact: 300px;
+$cardText: 20px;
+$color-accent:rgb(226,79,64);
+
+%flex { 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+// ********************************
+
+body{
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    @extend %flex;   
+}
+
+.card-container{
+    width: $Width-fact;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    border: rgba(76, 0, 130, 0.1) 1px solid;
+    overflow: hidden;
+
+    &:hover{
+        .picture-card{
+            transform: translateY(50px) scale(1.7);
+        }
+        .cardText-container{
+            transform: translateY(-100px);
+            transition: transform 0.6s ease;
+            .text-hidden{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+nav{
+    position: absolute;
+    width: $Width-fact;
+    height: 400px;
+    
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: center;   
+    z-index: 2;
+}
+
+.date{
+    width: $HW-nav;
+    height: $HW-nav;
+    margin: 20px;
+    @extend %flex;
+    border-radius: $HW-nav;
+    background-color: $color-accent;
+    
+    p{  
+        width: 50%;
+        color: white;
+        font-size: 1.2rem;
+    }
+}
+.infos-post{       
+    @extend %flex;
+    background-color: white;
+    border: rgba(76, 0, 130, 0.1) 1px solid;
+    border-top:none ;
+    width: $Width-fact;
+    height: 30px;
+    div{
+        width: $Width-fact/2;
+        height: 30px;
+
+        @extend %flex;
+        justify-content: flex-start;
+        margin: 0 10px;
+        
+        opacity: 0.5;
+        font-size: 1.2rem;
+        font-weight: 500;
+    
+        img{
+            margin: 0 10px;
+            width: 12px;
+        }
+    }
+}
+
+.img-container{
+    width: $Width-fact;
+    height: 60%;
+    overflow: hidden;
+    .picture-card{
+        margin: auto;
+        transform: translateY(50px) scale(1.5);
+        transition: transform 0.6s;
+    }
+}
+
+.cardText-container{
+    transition: transform 0.6s;
+    transform: translateY(0);
+    
+    padding: $cardText;
+    background-color: white;
+    height: 400px;
+    width: $Width-fact;
+
+
+    .btn-picture{
+        position: relative;
+        top: (-$cardText)-15px;
+        left: -$cardText;
+        width: 80px;
+        height: 30px;
+        @extend %flex;
+        margin: 0;
+        background-color: $color-accent;
+
+        p{  
+            color: white;
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+    }
+
+    h1{
+        font-size: 2rem;
+        margin: -$cardText 0 10px 0;
+    }
+    h2{
+        font-size: 1.6rem;
+        color: $color-accent;
+    }
+
+    .text-hidden{
+        line-height: 2.5rem;
+        font-size: 1.35rem;
+        font-weight: 500;
+        color: rgb(127, 127, 127);
+        margin-top: 30px;
+
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+}
+
